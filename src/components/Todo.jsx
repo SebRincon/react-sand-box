@@ -6,6 +6,8 @@ function Todo() {
     const [loading, setLoading] = useState(true)
     const [todo, setTodo] = useState({})
 
+    const isMounted = useRef(true)
+
     // On boot run the fetch with a 3 sec timout 
     // Toggling the display to off will cause the leak
     useEffect(() => { 
@@ -13,11 +15,17 @@ function Todo() {
             .then((res) => res.json())
             .then((data) => { 
                 setTimeout(() => { 
-                    setTodo(data)
-                    setLoading(false)
+
+                    // Checking if the component is mounted
+                    if (isMounted) { 
+                        setTodo(data)
+                        setLoading(false)
+                    }
                 }, 3000)
             })
-    }, [])
+        // Function runs when the component is unmounted
+        return () => { isMounted.current = false }
+    }, [isMounted])
 
 
     return (loading ? <h3>Loading...</h3> : <h1>{ todo.title }</h1>)
