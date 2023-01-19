@@ -2,9 +2,12 @@
 import {React,useEffect, useRef, useState} from 'react'
 
 function Todo() {
+    // state 
     const [loading, setLoading] = useState(true)
     const [todo, setTodo] = useState({})
 
+    // On boot run the fetch with a 3 sec timout 
+    // Toggling the display to off will cause the leak
     useEffect(() => { 
         fetch('https://jsonplaceholder.typicode.com/todos/1')
             .then((res) => res.json())
