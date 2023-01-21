@@ -5,14 +5,14 @@ import UseRefMemLeak from './components/UseRefMemLeak'
 import UseMemoExample from './components/UseMemoExample'
 import UseCallback from './components/UseCallback'
 import CustomHookExample from './components/CustomHookExample'
-import CustonHookLocalStorage from './components/CustonHookLocalStorage'
+import CustomHookLocalStorage from './components/CustomHookLocalStorage'
 
 function App() {
 
 
   return (
     <div className="App">
-    <CustonHookLocalStorage/>
+    <CustomHookLocalStorage/>
     </div>
   )
 }

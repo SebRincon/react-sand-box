@@ -1,6 +1,6 @@
 import useLocalStorage from "./hooks/useLocalStorage"
 
-function CustonHookLocalStorage() {
+function CustomHookLocalStorage() {
     // key & initial value 
     const [task, setTask] = useLocalStorage('task', '')
     const [tasks, setTasks] = useLocalStorage('tasks', [])
@@ -14,7 +14,7 @@ function CustonHookLocalStorage() {
         }
         setTasks([...tasks, taskObj])
     }
-    
+
     return (
       <>
       <form onSubmit={onSubmit} className="w-25">
@@ -31,4 +31,4 @@ function CustonHookLocalStorage() {
   )
 }
 
-export default CustonHookLocalStorage
+export default CustomHookLocalStorage
